@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+
+    <style>
+	body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        display: flex;
+        justify-content: center;      
+        align-items: center;
+        height: 100vh;
+        background-image: linear-gradient(rgba(49, 47, 45, 0.692),rgba(86, 79, 75, 0.555) ), url("../Assets/loginimg2.jpg"); 
+        background-position: center;
+        background-size: cover;
+        color: #30251a;
+
+    }
+    
+    .container {
+        display: flex;
+        width: 60%;
+        height: 75%;
+        background-color: white;
+        box-shadow: 0 4px 10px rgba(30, 22, 14, 0.922);
+    }
+    
+    .logindiv {
+        width: 50%;
+        padding: 50px;
+       
+    }
+    
+    .imagediv {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: grey;
+        background-image: url(../Assets/loginimg.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    
+    
+    h2 {
+        margin-bottom: 20px;
+    }
+    
+    .form {
+        margin-bottom: 15px;
+    }
+    
+    
+    .form input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px ;
+        border: 1px solid #dad9d9;
+        border-radius: 5px;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #30251a;
+
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    
+    button:hover {
+        background-color: rgba(47, 34, 20, 0.922);
+        box-shadow: 0 2px 4px rgba(30, 22, 14, 0.922);
+
+    }
+
+
+    .facebookbtn:hover{
+        box-shadow: 0 2px 4px rgba(30, 22, 14, 0.922);
+      
+       
+    }
+</style>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Marck+Script&family=Poiret+One&display=swap'); /*Imported font*/
+</style>
+
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="logindiv">
+            <img src="../Assets/Screenshot 2024-10-13 132407.png" alt="logo" style="height: 60px; margin-left: 170px;">
+            <h2 style="text-align: center; font-family: 'Marck Script', cursive; font-size: 40px;">Welcome to Hue</h2>
+
+            <form id="loginform">
+                <div class="form">
+
+                    <input type="text" placeholder="Username" id="username"  required>
+    
+                    <input type="password" placeholder="Password" id="password" required minlength="8">      <!--minlength sets passsword to be atleast 8 characters-->
+                </div>
+
+                <button  type="submit">Log in</button>
+                <p style="text-align: center; color: #9e9d9b;"> <em>____________________ or ____________________</em></p>
+                <button style="border: 1px solid #747272; background-color: white; color: black; margin-top: 20px;" class="facebookbtn"  type = "submit" >  <img src="../Assets/facebook-logo.png" alt="Login Image" style="height: 15px;"> <b>Continue with Facebook</b> </button>
+            </form>
+
+        </div>
+
+        <div class="imagediv">
+            
+        </div>
+
+    </div>
+
+    <script>
+        const Username = "admin123";
+        const Password = "password123";
+
+        let attempts = 0;
+
+        document.getElementById("loginform").addEventListener ("submit", function(event) 
+        {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === Username && password === Password) 
+            {
+                window.location.href = "products.html"
+            }
+
+            else
+            {
+                attempts++;
+                if (attempts === 3 )
+                {
+                    window.location.href = "error.html"
+                }
+                else
+                {
+                    alert("Invalid Login. Please try again")
+                }
+            }
+
+        });
+
+    </script>
+</body>
+</html>
